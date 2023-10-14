@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "lottie-react": "^2.4.0",
     "next": "13.5.4",
     "phosphor-icons": "^1.4.2",
     "phosphor-react": "^1.4.1",

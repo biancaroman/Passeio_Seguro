@@ -11,7 +11,7 @@ import { NavLink } from "./components/NavLink";
 const linksNav = [
   {
     content: 'Home',
-    path: '/'
+    path: '/login'
   },
   {
     content: 'Sobre Nós',
