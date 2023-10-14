@@ -1,5 +1,10 @@
+import { Header } from "@/app/components/Header";
+
 export default function Home() {
   return (
-    <h1>Hello world</h1>
-  )
+    <>
+      <Header isAuthenticated={false} />
+      <h1>Hello world</h1>
+    </>
+  );
 }
