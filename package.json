@@ -1,5 +1,5 @@
 {
-  "name": "passeioseguro",
+  "name": "passeio-seguro",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,12 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "next": "13.5.4",
     "react": "^18",
-    "react-dom": "^18",
-    "next": "13.5.4"
+    "react-dom": "^18"
   },
   "devDependencies": {
+    "autoprefixer": "^10",
     "eslint": "^8",
-    "eslint-config-next": "13.5.4"
+    "eslint-config-next": "13.5.4",
+    "postcss": "^8",
+    "tailwind-merge": "^1.14.0",
+    "tailwindcss": "^3"
   }
 }
