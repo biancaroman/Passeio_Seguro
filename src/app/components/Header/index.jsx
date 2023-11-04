@@ -16,7 +16,7 @@ const linksNav = [
   },
   {
     content: 'Sobre Nós',
-    path: '/sobre-nos'
+    path: '/sobreNos'
   },
   {
     content: 'Suporte ao Cliente',
