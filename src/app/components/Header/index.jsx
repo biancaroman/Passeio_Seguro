@@ -24,7 +24,7 @@ const linksNav = [
   },
   {
     content: 'Dados da Equipe',
-    path: '/dados-equipe'
+    path: '/dadosEquipe'
   },
 ]
 
