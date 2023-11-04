@@ -69,9 +69,12 @@ const Equipe = ({ nome, imagem, linkedin, rm, whatsapp, email, github }) => (
 );
 
 export default function PaginaEquipe() {
+
+  const isAuthenticated = true;
+  
   return (
     <div>
-      <Header/>
+    <Header isAuthenticated={isAuthenticated}/>
     <div className="bg-cover bg-center h-[550px] relative  md:top-0 flex justify-center items-center">
           <Image
             src= {nossaEquipe}

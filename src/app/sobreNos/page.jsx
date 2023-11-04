@@ -5,9 +5,12 @@ import Image from "next/image";
 import imagemSobreNos from '../assets/img/imagem-sobrenos.jpg'
 
 export default function SobreNos() {
+
+  const isAuthenticated = true;
+
   return (
     <main>
-      <Header />
+      <Header isAuthenticated={isAuthenticated}/>
       <section>
         <div className="bg-cover bg-center h-[550px] relative  md:top-0 flex justify-center items-center">
           <Image
