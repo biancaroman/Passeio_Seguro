@@ -31,6 +31,11 @@ const linksNav = [
 export function Header({ isAuthenticated }) {
   const [open, setOpen] = useState(false)
 
+  const additionalLink = {
+    content: 'Portal', 
+    path: '/portal', 
+  };
+
   return (
     <header className="w-full min-h-28 py-8 bg-blue-800 2xl:flex  2xl:justify-center ">
       <div className="w-full max-w-lplarge flex flex-wrap justify-between  md:mx-auto lg:flex-nowrap lg:justify-between xl:max-w-7xl ">
@@ -58,6 +63,7 @@ export function Header({ isAuthenticated }) {
                 <NavLink key={link.path} content={link.content} path={link.path} />
               )
             })}
+            {isAuthenticated && <NavLink content={additionalLink.content} path={additionalLink.path} />}
           </ul>
           {
             isAuthenticated ? (
@@ -71,7 +77,6 @@ export function Header({ isAuthenticated }) {
             )
           }
         </nav>
-
       </div>
     </header>
 
