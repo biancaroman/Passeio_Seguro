@@ -1,6 +1,6 @@
 import { Header } from "@/app/components/Header";
 import Footer from "./components/Footer";
-import Inicio from "./inicio";
+import Inicio from "./inicio/page";
 
 export default function Home() {
   return (
