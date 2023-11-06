@@ -47,7 +47,7 @@ const membrosEquipe = [
 ];
 
 const Equipe = ({ nome, imagem, linkedin, rm, whatsapp, email, github }) => (
-  <div className="bg-white w-1/4 mx-auto my-10 p-6 rounded-lg shadow-lg">
+  <div className="bg-white w-1/3 mx-auto my-10 p-6 rounded-lg shadow-lg">
     <img src={imagem} alt="Nossa Equipe" className="w-full rounded-t-lg" />
     <h3 className="text-xl font-semibold mt-4">{nome}</h3>
     <a href={linkedin} className="text-blue-500 block mt-2">
