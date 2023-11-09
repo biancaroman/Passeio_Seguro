@@ -28,11 +28,11 @@ const Chatbot = () => {
   };
 
   return (
-    <main className="bg-cover bg-center bg-fixed min-h-screen" style={{ backgroundImage: 'url("/img/imagem-contato.webp")' }}>
+    <main className="bg-cover bg-fixed min-h-screen" style={{ backgroundImage: 'url("/img/imagem-contato.webp")' }}>
       <Header isAuthenticated={isAuthenticated}/>
       <div className="flex flex-col items-center justify-center h-screen">
-        <div className="border p-4 rounded-lg shadow-lg w-[900px] h-[400px]">
-          <div className="h-80 overflow-y-scroll">
+        <div className="border p-4 rounded-lg shadow-lg lg:w-[900px] w-full max-w-screen-md">
+          <div className="h-[200px] sm:h-[300px] md:h-[400px] overflow-y-scroll">
             {messages.map((message, index) => (
               <div
                 key={index}
