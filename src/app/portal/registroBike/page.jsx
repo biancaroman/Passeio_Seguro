@@ -26,10 +26,10 @@ export default function RegistroBike() {
   const [aumentarAltura, setAumentarAltura] = useState(false);
 
   return (
-    <main>
+    <main className="bg-cover bg-center bg-fixed min-h-screen" style={{ backgroundImage: 'url("/img/fundo-registrarbike.jpg")' }}>
       <Header isAuthenticated={isAuthenticated}/>
-      <div className={`flex flex-col items-center justify-center p-5`}>
-        <div className={`bg-white border-2 shadow-md rounded-md p-6`}>
+      <div className={`flex flex-col items-center p-5` }>
+        <div className={`w-1/2 bg-white border-2 shadow-md rounded-md p-6`}>
           <h1 className="font-semibold text-2xl">
             Cadastro da <span className="text-blue-500">Bicicleta</span>
           </h1>
