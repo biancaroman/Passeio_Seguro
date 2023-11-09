@@ -6,6 +6,7 @@ import iconeUm from '../assets/img/icone1.png';
 import iconeDois from '../assets/img/icone2.png';
 import iconeTres from '../assets/img/icone3.png';
 import imagemHome from '../assets/img/imagemhome.jpg'
+import CarrosselClientes from '../components/Carrousel';
 
 
 const Inicio = () => {
@@ -68,7 +69,8 @@ const Inicio = () => {
         <div className="text-center p-8">
           <h1 className="text-2xl md:text-4xl mb-4">Veja o que nossos clientes dizem!</h1>
         </div>
-        <div className="flex justify-center bg-blue-900 w-70 p-8 rounded-lg mx-24 my-8">
+        <div className='p-4'>
+          <CarrosselClientes/>
         </div>
       </section>
     </main>
