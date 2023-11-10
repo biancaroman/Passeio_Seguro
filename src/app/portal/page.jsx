@@ -25,7 +25,7 @@ export default function Portal(){
     return(
         <main>
             <Header isAuthenticated={isAuthenticated}/>
-            <div className="bg-cover bg-center h-[550px] relative  md:top-0 flex justify-center items-center">
+            <div className="bg-cover bg-center h-[550px] relative flex justify-center items-center">
             <Image
                 src= {imagemPortal}
                 layout="fill"
@@ -110,11 +110,11 @@ export default function Portal(){
                 </table>
                 </div>
                 <div className="w-full">
-                <div className="w-full py-7 mr-5 mb-5 flex justify-center">
-                    <button className="m-10 bg-blue-500 text-white rounded-lg px-28 py-4 ">
+                <div className="w-full py-7 mr-5 mb-5 flex justify-center w-auto">
+                    <button className="m-10 bg-blue-500 text-white rounded-lg px-4 md:px-28 py-2 md:py-4 ">
                     <Link href="portal/registroBike">Registrar nova bicicleta</Link>
                     </button>
-                    <button className=" m-10 bg-blue-500 text-white rounded-lg px-28 py-4">
+                    <button className=" m-10 bg-blue-500 text-white rounded-lg px-4 md:px-28 py-2 md:py-4">
                     <Link href="portal/vistoriaBike">Registrar nova vistoria</Link>
                     </button>
                 </div>
