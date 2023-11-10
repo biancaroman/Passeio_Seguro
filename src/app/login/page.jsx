@@ -6,7 +6,7 @@ import backgroundImage from "@/app/assets/img/BgLogin.jpg";
 export default function Login() {
   return (
     <div className="flex h-screen">
-      <section className="w-1/2 p-8 relative">
+      <section className="md:w-1/2 sm:w-full relative">
         <form className="max-w-md mx-auto h-full flex flex-col justify-center text-center">
           <h1 className=" text-3xl font-light mb-10">Login</h1>
           <div className="mb-8 ">
@@ -32,7 +32,7 @@ export default function Login() {
           </div>
         </form>
       </section>
-      <section className="w-1/2 relative">
+      <section className="w-1/2 relative hidden md:block">
         <div className="h-full">
           <Image src={backgroundImage} alt="Background Image" layout="fill" objectFit="cover" />
         </div>

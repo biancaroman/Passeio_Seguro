@@ -6,13 +6,13 @@ import backgroundImage from "@/app/assets/img/BgCadastro.jpg";
 export default function Cadastro() {
   return (
     <div className="flex h-full">
-      <section className="w-1/2 relative">
+      <section className="w-1/2 relative hidden md:block">
         <div className="h-full">
           <Image src={backgroundImage} alt="Background Image" layout="fill" objectFit="cover" />
         </div>
       </section>
-      <section className="w-1/2 p-8 relative">
-        <form className="max-w-md mx-auto h-full flex flex-col justify-center">
+      <section className="md:w-1/2 relative sm:w-full sm:p-0 md:p-8">
+        <form className="max-w-md h-full flex flex-col justify-center ">
           <h1 className='text-3xl font-medium mb-4'>Realize agora sua vistoria na Passeio Seguro</h1>
           <h3 className='font-light mb-8'>Basta preencher o formulário abaixo. É rapidinho!</h3>
           <div className="mb-5 ">
