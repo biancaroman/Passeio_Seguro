@@ -35,9 +35,9 @@ export default function VistoriaBike() {
   };
 
   return (
-    <main>
+    <main className="bg-cover bg-center bg-fixed min-h-screen" style={{ backgroundImage: 'url("/img/fundo-registrarvistoria.jpg")' }}>
       <Header isAuthenticated={isAuthenticated} />
-      <section className='ml-10'>
+      <section className='ml-10 ml-sm-0 text-white p-10'>
         <div className="mt-10 text-left ml-5">
           <h1 className="font-bold text-3xl">
             Vistoria da <span className="text-blue-500">Bicicleta</span>
@@ -45,7 +45,7 @@ export default function VistoriaBike() {
           <p>Insira os arquivos a seguir</p>
         </div>
         <div className="w-11/12">
-          <div className="text-left ml-4 mt-4 space-y-4">
+          <div className="text-left ml-4 mt-4 space-y-4 ml-sm-0">
             {fieldLabels.map((label, index) => (
               <div className="flex items-center" key={index}>
                 <label className="border-b border-gray-300 w-1/2" htmlFor={label}>{label}</label>
@@ -62,7 +62,7 @@ export default function VistoriaBike() {
                     onClick={() =>
                       document.getElementById(`${label}FileInput`).click()
                     }
-                    className="border p-1 rounded bg-white ml-4"
+                    className="border p-1 rounded bg-white ml-4 text-black"
                     style={{ display: 'flex', alignItems: 'center' }}
                   >
                     <FaFile /> Anexar Arquivo
@@ -80,8 +80,8 @@ export default function VistoriaBike() {
             >
               Encaminhar
             </button>
-            <button className="border border-solid border-black p-2 rounded hover:bg-blue-700 cursor-pointer">
-              <Link href="/portal" className="text-black">
+            <button className="border border-solid p-2 rounded hover:bg-blue-700 cursor-pointer">
+              <Link href="/portal" className='font-bold'>
                 Cancelar
               </Link>
             </button>

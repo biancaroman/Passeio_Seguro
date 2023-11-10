@@ -6,7 +6,7 @@ import Footer from '../components/Footer';
 import Link from 'next/link'; 
 import Image from "next/image";
 
-import imagemPortal from 'public/img/imagemPortal.jpg'
+import imagemPortal from 'public/img/fundo-registrarbike.jpeg'
 
 export default function Portal(){
 
@@ -25,15 +25,15 @@ export default function Portal(){
     return(
         <main>
             <Header isAuthenticated={isAuthenticated}/>
-            <div className="bg-cover bg-center h-[550px] relative  md:top-0 flex justify-center items-center">
+            <div className="bg-cover bg-center h-[550px] relative flex justify-center items-center">
             <Image
                 src= {imagemPortal}
                 layout="fill"
                 objectFit="cover"
             />
             <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
-                <h1 className="text-4xl font-inter">OLÁ, NOME</h1>
-                <h3 className="text-2xl">SEJA BEM-VINDO AO SEU PORTAL.</h3>
+                <h1 className="text-4xl ">OLÁ, NOME</h1>
+                <h3 className="text-3xl font-semibold">SEJA BEM-VINDO AO SEU PORTAL.</h3>
             </div>
 
             </div>
@@ -110,11 +110,11 @@ export default function Portal(){
                 </table>
                 </div>
                 <div className="w-full">
-                <div className="w-full py-7 mr-5 mb-5 flex justify-center">
-                    <button className="m-10 bg-blue-500 text-white rounded-lg px-28 py-4 ">
+                <div className="w-full py-7 mr-5 mb-5 flex justify-center w-auto">
+                    <button className="m-10 bg-blue-500 text-white rounded-lg px-4 md:px-28 py-2 md:py-4 ">
                     <Link href="portal/registroBike">Registrar nova bicicleta</Link>
                     </button>
-                    <button className=" m-10 bg-blue-500 text-white rounded-lg px-28 py-4">
+                    <button className=" m-10 bg-blue-500 text-white rounded-lg px-4 md:px-28 py-2 md:py-4">
                     <Link href="portal/vistoriaBike">Registrar nova vistoria</Link>
                     </button>
                 </div>
