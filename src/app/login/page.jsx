@@ -82,5 +82,5 @@ const Login = () => {
     </div>
   );
 };
-<button className="bg-blue-600 text-white px-9 py-3 rounded">Entrar</button>
+
 export default Login;
