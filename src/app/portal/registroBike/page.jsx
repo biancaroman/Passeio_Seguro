@@ -26,10 +26,10 @@ export default function RegistroBike() {
   const [aumentarAltura, setAumentarAltura] = useState(false);
 
   return (
-    <main className="bg-cover bg-center bg-fixed min-h-screen" style={{ backgroundImage: 'url("/img/fundo-registrarbike.jpg")' }}>
+    <main className="bg-cover bg-center bg-fixed min-h-screen" style={{ backgroundImage: 'url("/img/fundo-registrarbike.jpeg")' }}>
       <Header isAuthenticated={isAuthenticated}/>
-      <div className={`flex flex-col items-center p-5` }>
-        <div className={`w-1/2 bg-white border-2 shadow-md rounded-md p-6`}>
+      <div className={`flex flex-col items-center p-5 min-h-screen` }>
+        <div className={`bg-white border-2 shadow-md rounded-md p-6 lg:w-1/2`} >
           <h1 className="font-semibold text-2xl">
             Cadastro da <span className="text-blue-500">Bicicleta</span>
           </h1>
@@ -37,7 +37,7 @@ export default function RegistroBike() {
             <MdDirectionsBike className="text-2xl" />
             Adicionar nova bike
           </p>
-          <div className="w-full p-5">
+          <div className="w-full p-5 text-sm lg:text-base">
             <label htmlFor="ID" className="block text-gray-600 text-sm font-semibold">Número de Identificação</label>
             <input type="text" id="ID" className="w-full border-b-2 border-gray-400 mt-5" placeholder="Número de Identificação"/>
 
