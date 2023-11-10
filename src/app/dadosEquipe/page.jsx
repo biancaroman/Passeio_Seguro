@@ -3,9 +3,9 @@ import { MdEmail } from 'react-icons/md';
 import { IoLogoGithub, IoLogoLinkedin } from 'react-icons/io';
 import { Header } from '../components/Header';
 import Footer from '../components/Footer';
-
 import Image from "next/image";
-import nossaEquipe from 'public/img/nossaEquipe.jpg'
+
+import imagemEquipe from 'public/img/nossaEquipe.webp'
 
 const membrosEquipe = [
   {
@@ -47,7 +47,7 @@ const membrosEquipe = [
 ];
 
 const Equipe = ({ nome, imagem, linkedin, rm, whatsapp, email, github }) => (
-  <div className="bg-white w-1/3 mx-auto my-10 p-6 rounded-lg shadow-lg">
+  <div className="bg-white w-full sm:w-1/3 md:w-1/2 lg:w-1/4 mx-20 my-10 p-6 rounded-lg shadow-lg relative">
     <img src={imagem} alt="Nossa Equipe" className="w-full rounded-t-lg" />
     <h3 className="text-xl font-semibold mt-4">{nome}</h3>
     <a href={linkedin} className="text-blue-500 block mt-2">
@@ -75,22 +75,27 @@ export default function PaginaEquipe() {
   return (
     <div>
     <Header isAuthenticated={isAuthenticated}/>
-    <div className="bg-cover bg-center h-[550px] relative  md:top-0 flex justify-center items-center">
-          <Image
-            src= {nossaEquipe}
-            layout="fill"
-            objectFit="cover"
-          />
-        <h1 className="text-black font-semibold text-5xl absolute md:text-6xl">Nossa Equipe</h1>
+    <div className="bg-cover bg-center h-[480px] relative flex justify-center items-center">
+            <Image
+                src= {imagemEquipe}
+                layout="fill"
+                objectFit="cover"
+            />
     </div>
-      <div className="text-center">
-        <p className="text-2xl p-8">
-          Conheça a equipe que compartilha sua paixão por bicicletas. <br /> Estamos aqui para tornar suas pedaladas mais seguras e tranquilas.
+    <div className=" h-[60px] relative flex ml-20 mt-10">
+        <h1 className="text-black font-light text-3xl ">Nossa Equipe</h1>
+    </div>
+    <hr className="ml-20 mr-20 bg-black w-88 p-1/3"  />
+      <div className="mr-36 text-1xl ml-20 mt-5 " >
+        <p >
+          Conheça a equipe que compartilha sua paixão por bicicletas. <br /> Altamente qualificada e apaixonada pelo que faz, estamos prontos para enfrentar qualquer desafio. Juntos, trabalhamos para atender às necessidades dos nossos clientes e alcançar os melhores resultados. Venha conhecer a equipe que faz acontecer!
         </p>
       </div>
-      {membrosEquipe.map((member, index) => (
-        <Equipe key={index} {...member} />
-      ))}
+      <div className="flex flex-wrap justify-center">
+        {membrosEquipe.map((member, index) => (
+          <Equipe key={index} {...member} />
+        ))}
+      </div>
     <Footer/>
     </div>
   );

@@ -6,7 +6,7 @@ import Footer from '../components/Footer';
 import Link from 'next/link'; 
 import Image from "next/image";
 
-import imagemPortal from 'public/img/imagemPortal.jpg'
+import imagemPortal from 'public/img/fundo-registrarbike.jpeg'
 
 export default function Portal(){
 
@@ -32,8 +32,8 @@ export default function Portal(){
                 objectFit="cover"
             />
             <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
-                <h1 className="text-4xl font-inter">OLÁ, NOME</h1>
-                <h3 className="text-2xl">SEJA BEM-VINDO AO SEU PORTAL.</h3>
+                <h1 className="text-4xl ">OLÁ, NOME</h1>
+                <h3 className="text-3xl font-semibold">SEJA BEM-VINDO AO SEU PORTAL.</h3>
             </div>
 
             </div>
