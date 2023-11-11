@@ -17,7 +17,7 @@ export default function RegistroBike() {
     modelo: "",
     numSerie: "",
     modalidade: "",
-    qtdRodas: 0,
+    qtdRodas: "",
     valor: "",
     nf: "",
     anoCompra: "",
@@ -119,7 +119,7 @@ export default function RegistroBike() {
             onChange={(e) => handleInputChange('modalidade', e.target.value)} className="w-full border-b-2 border-gray-400 mt-5" required/>
 
             <label htmlFor="QtdRodas" className="block text-gray-600 text-sm font-semibold"></label>
-            <input type="number" id="QtdRodas" placeholder="Quantidade de rodas" value={dadosBicicleta.qtdRodas} 
+            <input type="number" id="QtdRodas" placeholder="Quantidade de rodas" value={dadosBicicleta.qtdRodas}
             onChange={(e) => handleInputChange('qtdRodas', e.target.value)} className="w-full border-b-2 border-gray-400 mt-5" required/>
 
             <label htmlFor="Valor" className="block text-gray-600 text-sm font-semibold"></label>
