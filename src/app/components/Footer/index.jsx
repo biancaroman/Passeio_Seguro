@@ -19,10 +19,12 @@ const Footer = () => {
                     </a>
                 </div>
                 <div className="md:w-1/4">
-                    <div className="text-center">
+                    <div className="text-center lg:text-left">
                         <h2 className="text-2xl font-bold mb-3">Sobre a Passeio Seguro</h2>
-                        <Link href='/dadosEquipe' className="text-lg block mb-2">Nossa Equipe</Link>
-                        <Link href='/sobreNos' className="text-lg block">Quem Somos</Link>
+                        <Link href='/' className="text-lg block mb-2">Home</Link>
+                        <Link href='/sobreNos' className="text-lg block">Sobre nós</Link>
+                        <Link href='/suporte' className="text-lg block mb-2">Suporte ao cliente</Link>
+                        <Link href='/dadosEquipe' className="text-lg block">Dados da equipe</Link>
                     </div>
                 </div>
                 <div className="md:w-1/4 sm:w-1/2">
