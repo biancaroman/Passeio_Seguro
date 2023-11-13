@@ -3,6 +3,9 @@ import Image from "next/image";
 import { useState } from 'react';
 import backgroundImage from "@/app/assets/img/BgCadastro.jpg";
 
+import {ToastContainer, toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 export default function Cadastro() {
   
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -25,12 +28,12 @@ export default function Cadastro() {
     event.preventDefault();
 
     if (!isCpfValido(cpf)) {
-      alert('CPF inválido. Por favor, insira um CPF válido.');
+      toast.info('CPF inválido. Por favor, insira um CPF válido.');
       return;
     }
 
     if (!isSenhaValida(senha)) {
-      alert('A senha deve ter pelo menos 8 caracteres.');
+      toast.info('A senha deve ter pelo menos 8 caracteres.');
       return;
     }
 
@@ -45,26 +48,26 @@ export default function Cadastro() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          cpf: cpf,
           nome: nome, 
           email: email, 
-          endereco: endereco, 
           telefone: celular, 
+          endereco: endereco, 
+          cpf: cpf,
           senha: senha,
         }),
       });
 
       if (response.ok) {
-        alert('Cadastro realizado com sucesso');
+        toast.success('Cadastro realizado com sucesso');
         window.location.href = '/login';
       } else {
         const data = await response.json();
-        alert(`Erro ao cadastrar: ${data.message}`);
+        toast.error(`Erro ao cadastrar: ${data.message}`);
         setIsSubmitting(false);
       }
     } catch (error) {
       console.error('Erro na requisição:', error);
-      alert('Erro na requisição. Por favor, tente novamente mais tarde.');
+      toast.error('Erro na requisição. Por favor, tente novamente mais tarde.');
       setIsSubmitting(false);
     }
   
@@ -123,6 +126,7 @@ export default function Cadastro() {
           </div>
         </form>
       </section>
+      <ToastContainer />
     </div>
   );
 }

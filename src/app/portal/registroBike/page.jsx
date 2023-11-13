@@ -6,6 +6,9 @@ import Footer from '../../components/Footer';
 import { MdDirectionsBike } from 'react-icons/md';
 import Link from 'next/link';
 
+import {ToastContainer, toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 export default function RegistroBike() {
 
   const isAuthenticated = true;
@@ -65,14 +68,14 @@ export default function RegistroBike() {
       });
 
       if (resposta.ok) {
-        alert('Dados enviados com sucesso!');
+        toast.success('Dados enviados com sucesso!');
         window.location.href = '/portal';
       } else {
-        alert('Erro ao enviar dados para o servidor.');
+        toast.info('Erro ao enviar dados para o servidor.');
       }
     } catch (erro) {
       console.error('Erro na requisição:', erro);
-      alert('Erro na requisição. Por favor, tente novamente mais tarde.');
+      toast.error('Erro na requisição. Por favor, tente novamente mais tarde.');
     }
   };
   
@@ -202,6 +205,7 @@ export default function RegistroBike() {
         </div>
       </div>
       <Footer />
+      <ToastContainer />
     </main>
   );
 }

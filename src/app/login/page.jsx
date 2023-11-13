@@ -6,12 +6,37 @@ import Image from 'next/image';
 
 import backgroundImage from '@/app/assets/img/BgLogin.jpg';
 
+import {ToastContainer, toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Login = () => {
   const [cpf, setCpf] = useState('');
   const [senha, setSenha] = useState('');
 
+  const isCpfValido = (cpf) => {
+    cpf = cpf.replace(/[^0-9]/g, '');
+
+    if (cpf.length !== 11) {
+      return false;
+    }
+    
+    return true;
+  };
+
+  const isSenhaValida = (senha) => senha.length >= 8;
+
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    if (!isCpfValido(cpf)) {
+      toast.info('CPF inválido. Por favor, insira um CPF válido.');
+      return;
+    }
+
+    if (!isSenhaValida(senha)) {
+      toast.info('A senha deve ter pelo menos 8 caracteres.');
+      return;
+    }
 
     const apiUrl = 'http://'; // API Java
 
@@ -29,18 +54,18 @@ const Login = () => {
 
       if (response.ok) {
         const data = await response.json();
-        alert(data.message); 
+        toast.info(data.message); 
 
         if (data.success) {
           window.location.href = '/portal';
         }
       } else {
         const data = await response.json();
-        alert(data.message);
+        toast.info(data.message);
       }
     } catch (error) {
       console.error('Erro na requisição:', error);
-      alert('Erro na requisição. Por favor, tente novamente mais tarde.');
+      toast.error('Erro na requisição. Por favor, tente novamente mais tarde.');
     }
   };
 
@@ -79,6 +104,7 @@ const Login = () => {
           <Image src={backgroundImage} alt="Background Image" layout="fill" objectFit="cover" />
         </div>
       </section>
+      <ToastContainer />
     </div>
   );
 };
