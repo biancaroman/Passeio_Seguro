@@ -52,5 +52,6 @@ export default function SobreNos() {
       </section>
       <Footer />
     </main>
+    
   );
 };
