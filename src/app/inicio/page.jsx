@@ -51,7 +51,7 @@ const Inicio = () => {
               <h1 className="text-2xl">Inteligência Artificial</h1>
               <Image src={iconeDois} alt="iconeDois" className="w-20 mx-auto mt-4" />
               <p className="text-base sm:text-lg mt-4">
-                A utilização da inteligência artificial na vistoria de bicicletas nos permite uma análise precisa e eficiente de cada componente, identificando até mesmo problemas sutis. Além disso, acelera o processo, economizando tempo para ciclistas e profissionais de manutenção. A IA eleva a confiabilidade das vistorias, garantindo pedaladas mais seguras e confiantes.
+                A utilização da inteligência artificial na vistoria de bicicletas nos permite uma análise precisa e eficiente de cada componente, identificando até mesmo problemas sutis. Além disso, acelera o processo, economizando tempo para ciclistas e profissionais de manutenção. A I.A eleva a confiabilidade das vistorias, garantindo pedaladas mais seguras e confiantes.
               </p>
             </div>
             <div className="w-full sm:w-1/4 bg-white text-black p-4 mx-4 my-8 text-center rounded-lg shadow-lg">
