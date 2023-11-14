@@ -39,7 +39,7 @@ export default function Cadastro() {
 
     setIsSubmitting(true);
 
-    const apiUrl = 'http://'; //API Java.
+    const apiUrl = 'http://localhost:8080/PasseioSeguroAPI/api/segurado'; //API Java.
 
     try {
       const response = await fetch(apiUrl, {
