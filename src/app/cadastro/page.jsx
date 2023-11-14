@@ -1,24 +1,24 @@
 'use client'
+import backgroundImage from "@/app/assets/img/BgCadastro.jpg";
 import Image from "next/image";
 import { useState } from 'react';
-import backgroundImage from "@/app/assets/img/BgCadastro.jpg";
 
-import {ToastContainer, toast} from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function Cadastro() {
-  
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [cpf, setCpf] = useState('');
   const [senha, setSenha] = useState('');
-  
+
   const isCpfValido = (cpf) => {
     cpf = cpf.replace(/[^0-9]/g, '');
 
     if (cpf.length !== 11) {
       return false;
     }
-    
+
     return true;
   };
 
@@ -26,6 +26,12 @@ export default function Cadastro() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    const formData = new FormData(event.target);
+    const nome = formData.get('nome');
+    const email = formData.get('email');
+    const celular = formData.get('celular');
+    const endereco = formData.get('endereco');
 
     if (!isCpfValido(cpf)) {
       toast.info('CPF inválido. Por favor, insira um CPF válido.');
@@ -39,7 +45,7 @@ export default function Cadastro() {
 
     setIsSubmitting(true);
 
-    const apiUrl = 'http://localhost:8080/PasseioSeguroAPI/api/segurado'; //API Java.
+    const apiUrl = 'http://localhost:8080/PasseioSeguroAPI/api/segurado';
 
     try {
       const response = await fetch(apiUrl, {
@@ -48,10 +54,10 @@ export default function Cadastro() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          nome: nome, 
-          email: email, 
-          telefone: celular, 
-          endereco: endereco, 
+          nome: nome,
+          email: email,
+          telefone: celular,
+          endereco: endereco,
           cpf: cpf,
           senha: senha,
         }),
@@ -66,11 +72,9 @@ export default function Cadastro() {
         setIsSubmitting(false);
       }
     } catch (error) {
-      console.error('Erro na requisição:', error);
-      toast.error('Erro na requisição. Por favor, tente novamente mais tarde.');
+      toast.error(error);
       setIsSubmitting(false);
-    }
-  
+    };
   };
 
   return (
@@ -86,7 +90,7 @@ export default function Cadastro() {
           <h3 className='font-light mb-8'>Basta preencher o formulário abaixo. É rapidinho!</h3>
           <div className="mb-5">
             <label htmlFor="nome" className="block text-left">Nome</label>
-            <input type="text" id="nome" placeholder="Digite seu nome" className="border rounded-md p-2" required />
+            <input type="text" id="nome" name="nome" placeholder="Digite seu nome" className="border rounded-md p-2" required />
           </div>
           <div className="mb-5">
             <label htmlFor="cpf" className="block text-left">CPF</label>
@@ -100,12 +104,12 @@ export default function Cadastro() {
           </div>
           <div className="mb-5">
             <label htmlFor="endereco" className="block text-left">Endereço</label>
-            <input type="text" id="endereco" placeholder="Digite seu endereço" className="border rounded-md p-2" required />
+            <input type="text" id="endereco" name="endereco" placeholder="Digite seu endereço" className="border rounded-md p-2" required />
           </div>
           <div className="mb-5">
             <label htmlFor="celular" className="block text-left">Celular</label>
             <input type="tel" name='celular' id="celular" placeholder="Número de celular" className="border rounded-md p-2 mb-2" required />
-            <p>Ex:(11)99999-9999</p>
+            <p>Ex:(11)999999999</p>
           </div>
           <div className="mb-5">
             <label htmlFor="senha" className="block text-left">Senha</label>
