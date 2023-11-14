@@ -59,7 +59,7 @@ export default function RegistroBike() {
     }
 
     try {
-      const resposta = await fetch('http://', { //Api Java 
+      const resposta = await fetch('http://localhost:8080/PasseioSeguroAPI/api/bicicleta', { //Api Java 
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
