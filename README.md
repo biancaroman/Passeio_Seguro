@@ -14,9 +14,9 @@ This challenge was proposed by FIAP in partnership with Porto Seguro, with the g
   "senha": "12345678"
 
 ## Links ##
-- [API Java] (https://locrian-answer-d76.notion.site/Java-API-Passeio-Seguro-b798fc7ea3934d7c8a15978fed4d2f4c?pvs=4)
-- [Repositório GitHub] (https://github.com/biancaroman/Passeio_Seguro)
-- [URL do projeto na plataforma Vercel] (https://passeioseguro.vercel.app)
+- API Java: (https://locrian-answer-d76.notion.site/Java-API-Passeio-Seguro-b798fc7ea3934d7c8a15978fed4d2f4c?pvs=4)
+- Repositório GitHub: (https://github.com/biancaroman/Passeio_Seguro)
+- URL do projeto na plataforma Vercel: (https://passeioseguro.vercel.app)
 
   
   
