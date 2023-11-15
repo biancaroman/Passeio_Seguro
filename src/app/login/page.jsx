@@ -44,12 +44,6 @@ const Login = () => {
     const apiUrl = 'http://localhost:8080/PasseioSeguroAPI/api/segurado/login';
 
     try {
-      const test = JSON.stringify({
-        cpf: cpf,
-        senha: senha,
-      });
-
-      console.log(test)
       const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {

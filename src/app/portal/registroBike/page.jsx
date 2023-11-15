@@ -14,25 +14,25 @@ export default function RegistroBike() {
   const isAuthenticated = true;
 
   const [dadosBicicleta, setDadosBicicleta] = useState({
-    id: "",
+    idBicicletaSemMotor: 0,
     marca: "",
     modelo: "",
     modalidade: "",
-    qtdRodas: "",
+    qtdRodas: 0,
     estado: "",
-    anoCompra: "",
+    anoCompra: 0,
     nf: "",
-    valor: "",
+    valorDeMercado: "",
     numSerie: "",
     marcaMotor: "",
-    potenciaMotor: "",
-    valorMotor: "",
+    potenciaMotor: 0,
+    valorMotor: 0,
     marcaBateria: "",
-    potenciaBateria: "",
-    valorBateria: "",
-    valorGPS: "",
-    valorCicloComputador: "",
-    valorVelocimetroDigital: "",
+    potenciaBateria: 0,
+    valorBateria: 0,
+    valorGPS: 0,
+    valorCicloComputador: 0,
+    valorVelocimetroDigital: 0,
   });
 
   const handleInputChange = (campo, valor) => {
