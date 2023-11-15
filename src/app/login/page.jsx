@@ -1,15 +1,18 @@
 'use client'
 
-import { useState } from 'react';
-import Link from 'next/link';
+import Cookies from 'js-cookie';
 import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
 import backgroundImage from '@/app/assets/img/BgLogin.jpg';
 
-import {ToastContainer, toast} from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
+  const router = useRouter();
   const [cpf, setCpf] = useState('');
   const [senha, setSenha] = useState('');
 
@@ -19,7 +22,7 @@ const Login = () => {
     if (cpf.length !== 11) {
       return false;
     }
-    
+
     return true;
   };
 
@@ -38,9 +41,15 @@ const Login = () => {
       return;
     }
 
-    const apiUrl = 'http://'; // API Java
+    const apiUrl = 'http://localhost:8080/PasseioSeguroAPI/api/segurado/login';
 
     try {
+      const test = JSON.stringify({
+        cpf: cpf,
+        senha: senha,
+      });
+
+      console.log(test)
       const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
@@ -52,22 +61,45 @@ const Login = () => {
         }),
       });
 
-      if (response.ok) {
-        const data = await response.json();
-        toast.info(data.message); 
+      const data = await response.json();
 
-        if (data.success) {
-          window.location.href = '/portal';
+      if (response.ok) {
+        const contentType = response.headers.get('content-type');
+        if (contentType && contentType.includes('application/json')) {
+          toast.success(data.message);
+
+          if (data.success && data.token) {
+            Cookies.set('authToken', data.token, { expires: 10 });
+
+            router.push('/portal');
+          }
+        } else {
+          console.error('Erro na requisição. O servidor retornou uma resposta inválida.');
         }
       } else {
-        const data = await response.json();
-        toast.info(data.message);
+        handleErrorResponse(response.status, data.message);
       }
     } catch (error) {
-      console.error('Erro na requisição:', error);
       toast.error('Erro na requisição. Por favor, tente novamente mais tarde.');
     }
   };
+
+  const handleErrorResponse = (status, message) => {
+    switch (status) {
+      case 400:
+        toast.error(message || 'Erro de requisição inválida.');
+        break;
+      case 404:
+        toast.error(message || 'Recurso não encontrado.');
+        break;
+      case 500:
+        toast.error(message || 'Erro interno no servidor. Por favor, tente novamente mais tarde.');
+        break;
+      default:
+        toast.error(message || 'Erro inesperado. Por favor, tente novamente mais tarde.');
+    }
+  };
+
 
   return (
     <div className="flex h-screen">
@@ -76,15 +108,15 @@ const Login = () => {
           <h1 className="text-3xl font-light mb-10">Login</h1>
           <div className="mb-8">
             <label htmlFor="cpf" className="block text-left ml-14">CPF</label>
-            <input type="text" name="cpf" id="cpf" className="border rounded p-2"  value={cpf}
-            onChange={(e) => setCpf(e.target.value)}
-         />
+            <input type="text" name="cpf" id="cpf" className="border rounded p-2" value={cpf}
+              onChange={(e) => setCpf(e.target.value)}
+            />
           </div>
           <div className="mb-4">
             <label htmlFor="senha" className="block text-left ml-14">Senha</label>
             <input type="password" name="senha" id="senha" className="border rounded p-2" value={senha}
-            onChange={(e) => setSenha(e.target.value)}
-          />
+              onChange={(e) => setSenha(e.target.value)}
+            />
           </div>
           <div className="mb-8">
             <input type="checkbox" name="salvarInfos" id="salvarInfos" value="True" className="mr-2" />
