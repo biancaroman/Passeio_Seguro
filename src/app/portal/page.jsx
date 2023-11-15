@@ -1,17 +1,20 @@
 'use client'
 
 import { Header } from "../components/Header";
-import { useState } from 'react';
 import Footer from '../components/Footer';
-import Link from 'next/link'; 
-import Image from "next/image";
 
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+
+import Image from "next/image";
+import Link from 'next/link'; 
 import imagemPortal from 'public/img/fundo-registrarbike.jpeg'
 
 export default function Portal(){
 
     const isAuthenticated = true;
 
+    const [vistorias, setVistorias] = useState([]);
     const [selectedRows, setSelectedRows] = useState([]);
 
     const handleCheckboxChange = (event, rowId) => {
@@ -21,6 +24,17 @@ export default function Portal(){
         setSelectedRows(selectedRows.filter(id => id !== rowId));
         }
     };
+
+    useEffect(() => {
+        const cpf = '123456789';
+        axios.get(`http://localhost:8080/PasseioSeguroAPI/api/historicovistoria/${cpf}`)
+            .then(response => {
+                setVistorias(response.data);
+            })
+            .catch(error => {
+                console.error('Erro ao obter as vistorias:', error);
+            });
+    }, []);
 
     return(
         <main>
@@ -64,21 +78,37 @@ export default function Portal(){
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>
-                        <input
-                            type="checkbox"
-                            name="visualizarbike"
-                            id="visualizarbike1"
-                            onChange={(e) => handleCheckboxChange(e, '001')}
-                        />
-                        </td>
-                        <td>001</td>
-                        <td>Em Andamento</td>
-                        <td>08/07/2023</td>
-                        <td>552267</td>
-                    </tr>
-                    <tr>
+                        {vistorias.map(vistoria => (
+                                <tr key={vistoria.codVistoria}>
+                                    <td>
+                                        <input
+                                            type="checkbox"
+                                            name="visualizarbike"
+                                            id={`visualizarbike${vistoria.codVistoria}`}
+                                            onChange={(e) => handleCheckboxChange(e, vistoria.codVistoria)}
+                                        />
+                                    </td>
+                                    <td>{vistoria.idBicicleta}</td>
+                                    <td>{vistoria.status}</td>
+                                    <td>{formatDate(vistoria.dataVistoria)}</td>
+                                    <td>{vistoria.codVistoria}</td>
+                                </tr>
+                            ))}
+                            <tr>
+                                <td>
+                                <input
+                                    type="checkbox"
+                                    name="visualizarbike"
+                                    id="visualizarbike1"
+                                    onChange={(e) => handleCheckboxChange(e, '001')}
+                                />
+                                </td>
+                                <td>001</td>
+                                <td>Em Andamento</td>
+                                <td>08/07/2023</td>
+                                <td>552267</td>
+                            </tr>
+                            <tr>
                         <td>
                         <input
                             type="checkbox"
@@ -106,7 +136,7 @@ export default function Portal(){
                         <td>02/08/2023</td>
                         <td>552269</td>
                     </tr>
-                    </tbody>
+                        </tbody>
                 </table>
                 </div>
                 <div className="w-full">
